@@ -92,11 +92,17 @@ int SDL_main( int argc , char* argv[] ){
 
         socket.write_some( asio::buffer(sRequest.data() , sRequest.size() ) , ec );
 
+        ///Though it is ALWAYS bad practice to add hardcoded tie delays, the code above it is supposed to be called, the the program continues
+        ///along until it needs the data that this fetches, by then there would've been enought time to get what it needs, if not, it would've
+        ///been added some error catching to deal with it, but for simplicity sake the delay remains.
+
         SDL_Delay(10000);
 
         for( size_t I = 0 ; I < vect_message.size() ; I++ ){
             message_assembled += vect_message[I];
         }
+
+        ///TODO : Get the JSON parser working
 
         __android_log_print(ANDROID_LOG_DEBUG, "ASIO", "ASIO MESSAGE: %s\n", message_assembled.c_str());
 
