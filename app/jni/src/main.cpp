@@ -102,7 +102,7 @@ int SDL_main( int argc , char* argv[] ){
             message_assembled += vect_message[I];
         }
 
-        ///TODO : Get the JSON parser working
+        ///TODO : Get the JSON parser working, currently it has a linking problem
 
         __android_log_print(ANDROID_LOG_DEBUG, "ASIO", "ASIO MESSAGE: %s\n", message_assembled.c_str());
 
